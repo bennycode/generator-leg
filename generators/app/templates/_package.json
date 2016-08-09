@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "browser-sync": "latest",
+    "gulp": "latest"
+  },
+  "name": "<%= props.projectName %>",
+  "private": true,
+  "scripts": {
+    "postinstall": "bower install && gulp dev"
+  }
+}
