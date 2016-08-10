@@ -1,7 +1,7 @@
 var browserSync = require('browser-sync').create();
 var gulp = require('gulp');
 
-gulp.task('dev', function () {
+gulp.task('default', function () {
   gulp.watch('public/**/*.*').on('change', browserSync.reload);
 
   browserSync.init({

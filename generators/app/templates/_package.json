@@ -6,6 +6,6 @@
   "name": "<%= props.projectName %>",
   "private": true,
   "scripts": {
-    "postinstall": "bower install && gulp dev"
+    "postinstall": "bower install && gulp"
   }
 }
