@@ -40,6 +40,7 @@ module.exports = yeoman.Base.extend({
       this.template('_.idea/_jsLibraryMappings.xml', '.idea/jsLibraryMappings.xml', this, {});
       this.template('_.idea/_modules.xml', '.idea/modules.xml', this, {});
       this.template('_.idea/_project.iml', '.idea/' + this.props.projectName + '.iml', this, {});
+      this.template('_.idea/_watcherTasks.xml', '.idea/watcherTasks.xml', this, {});
       wrench.copyDirSyncRecursive(this.templatePath('public'), this.destinationPath('public'), {forceDelete: true});
       this.template('_.bowerrc', '.bowerrc', this, {});
       this.template('_.gitignore', '.gitignore', this, {});
