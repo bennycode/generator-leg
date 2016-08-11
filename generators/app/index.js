@@ -43,6 +43,7 @@ module.exports = yeoman.Base.extend({
       this.template('_.idea/_watcherTasks.xml', '.idea/watcherTasks.xml', this, {});
       wrench.copyDirSyncRecursive(this.templatePath('public'), this.destinationPath('public'), {forceDelete: true});
       this.template('_.bowerrc', '.bowerrc', this, {});
+      this.template('_.editorconfig', '.editorconfig', this, {});
       this.template('_.gitignore', '.gitignore', this, {});
       this.template('_bower.json', '.bower.json', this, {});
       this.template('_gulpfile.js', 'gulpfile.js', this, {});
