@@ -3,16 +3,29 @@ var path = require('path');
 var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
-describe('generator-leg:app', function () {
-  before(function () {
+describe('generator-leg:app', function() {
+  before(function() {
     return helpers.run(path.join(__dirname, '../generators/app'))
-      .withPrompts({someAnswer: true})
+      .withOptions({
+        skipInstall: true
+      })
+      .withPrompts({
+        projectName: 'awesome-webapp',
+        organizationName: 'welovecoding'
+      })
       .toPromise();
   });
 
-  it('creates files', function () {
+  it('creates files', function() {
     assert.file([
-      'dummyfile.txt'
+      '.editorconfig',
+      '.gitattributes',
+      '.gitignore',
+      'bower.json',
+      'bower_assets.json',
+      'gulpfile.js',
+      'karma.conf.js',
+      'package.json',
     ]);
   });
 });
