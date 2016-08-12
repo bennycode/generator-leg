@@ -47,16 +47,16 @@ module.exports = yeoman.Base.extend({
       wrench.copyDirSyncRecursive(this.templatePath('public'), this.destinationPath('public'), {forceDelete: true});
 
       // src
-      wrench.copyDirSyncRecursive(this.templatePath('src'), this.destinationPath('public'), {forceDelete: true});
+      wrench.copyDirSyncRecursive(this.templatePath('src'), this.destinationPath('src'), {forceDelete: true});
 
       // test
-      wrench.copyDirSyncRecursive(this.templatePath('test'), this.destinationPath('public'), {forceDelete: true});
+      wrench.copyDirSyncRecursive(this.templatePath('test'), this.destinationPath('test'), {forceDelete: true});
 
       this.template('_.editorconfig', '.editorconfig', this, {});
       this.template('_.gitattributes', '.gitattributes', this, {});
       this.template('_.gitignore', '.gitignore', this, {});
-      this.template('_bower.json', '.bower.json', this, {});
-      this.template('_bower_assets.json', '.bower_assets.json', this, {});
+      this.template('_bower.json', 'bower.json', this, {});
+      this.template('_bower_assets.json', 'bower_assets.json', this, {});
       this.template('_gulpfile.js', 'gulpfile.js', this, {});
       this.template('_karma.conf.js', 'karma.conf.js', this, {});
       this.template('_package.json', 'package.json', this, {});
