@@ -1,11 +1,18 @@
 {
   "devDependencies": {
-    "browser-sync": "latest",
-    "gulp": "latest"
+    "browser-sync": "^2.14.0",
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-bower-assets": "0.0.3",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.1.2",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2"
   },
   "name": "<%= props.projectName %>",
   "private": true,
   "scripts": {
-    "postinstall": "bower install && gulp"
+    "postinstall": "gulp install",
+    "test": "gulp test"
   }
 }

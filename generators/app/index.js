@@ -36,22 +36,30 @@ module.exports = yeoman.Base.extend({
     writeMainFiles: function() {
       this.log(`Writing files for ${chalk.yellow(this.props.organizationName + '/' + this.props.projectName)}...`);
 
+      // .idea
       this.template('_.idea/_codeStyleSettings.xml', '.idea/codeStyleSettings.xml', this, {});
       this.template('_.idea/_jsLibraryMappings.xml', '.idea/jsLibraryMappings.xml', this, {});
       this.template('_.idea/_modules.xml', '.idea/modules.xml', this, {});
       this.template('_.idea/_project.iml', '.idea/' + this.props.projectName + '.iml', this, {});
       this.template('_.idea/_watcherTasks.xml', '.idea/watcherTasks.xml', this, {});
+
+      // public
       wrench.copyDirSyncRecursive(this.templatePath('public'), this.destinationPath('public'), {forceDelete: true});
-      this.template('_.bowerrc', '.bowerrc', this, {});
+
+      // src
+      wrench.copyDirSyncRecursive(this.templatePath('src'), this.destinationPath('public'), {forceDelete: true});
+
+      // test
+      wrench.copyDirSyncRecursive(this.templatePath('test'), this.destinationPath('public'), {forceDelete: true});
+
       this.template('_.editorconfig', '.editorconfig', this, {});
+      this.template('_.gitattributes', '.gitattributes', this, {});
       this.template('_.gitignore', '.gitignore', this, {});
       this.template('_bower.json', '.bower.json', this, {});
+      this.template('_bower_assets.json', '.bower_assets.json', this, {});
       this.template('_gulpfile.js', 'gulpfile.js', this, {});
+      this.template('_karma.conf.js', 'karma.conf.js', this, {});
       this.template('_package.json', 'package.json', this, {});
-      this.fs.copy(
-        this.templatePath('npm_install.sh'),
-        this.destinationPath('npm_install.sh')
-      );
     }
   },
   install: {
