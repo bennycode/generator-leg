@@ -64,10 +64,6 @@ module.exports = yeoman.Base.extend({
   },
   install: {
     installDependencies: function() {
-      if (process.env.TRAVIS) {
-        return;
-      }
-
       this.log('\r\nRunning ' + chalk.yellow('npm install') + ' for you...\r\n');
       this.npmInstall();
     }
