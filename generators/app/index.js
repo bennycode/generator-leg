@@ -52,6 +52,7 @@ module.exports = yeoman.Base.extend({
       // test
       wrench.copyDirSyncRecursive(this.templatePath('test'), this.destinationPath('test'), {forceDelete: true});
 
+      this.template('_.babelrc', '.babelrc', this, {});
       this.template('_.editorconfig', '.editorconfig', this, {});
       this.template('_.gitattributes', '.gitattributes', this, {});
       this.template('_.gitignore', '.gitignore', this, {});

@@ -18,6 +18,7 @@ describe('generator-leg:app', function() {
 
   it('creates files', function() {
     assert.file([
+      '.babelrc',
       '.editorconfig',
       '.gitattributes',
       '.gitignore',

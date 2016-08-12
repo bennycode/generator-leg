@@ -3,8 +3,15 @@ var bower = require('gulp-bower');
 var browserSync = require('browser-sync').create();
 var gulp = require('gulp');
 var Server = require('karma').Server;
+var babel = require('gulp-babel');
 
-gulp.task('default', function () {
+gulp.task('build', function() {
+  return gulp.src('src/main/js/**/*.js')
+    .pipe(babel())
+    .pipe(gulp.dest('public/js'));
+});
+
+gulp.task('default', function() {
   gulp.watch('public/**/*.*').on('change', browserSync.reload);
 
   browserSync.init({
