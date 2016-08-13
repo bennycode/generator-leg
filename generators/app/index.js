@@ -38,9 +38,10 @@ module.exports = yeoman.Base.extend({
 
       // .idea
       this.template('_.idea/_codeStyleSettings.xml', '.idea/codeStyleSettings.xml', this, {});
-      this.template('_.idea/_jsLibraryMappings.xml', '.idea/jsLibraryMappings.xml', this, {});
+      this.template('_.idea/_misc.xml', '.idea/misc.xml', this, {});
       this.template('_.idea/_modules.xml', '.idea/modules.xml', this, {});
       this.template('_.idea/_project.iml', '.idea/' + this.props.projectName + '.iml', this, {});
+      this.template('_.idea/_vcs.xml', '.idea/vcs.xml', this, {});
       this.template('_.idea/_watcherTasks.xml', '.idea/watcherTasks.xml', this, {});
 
       // public

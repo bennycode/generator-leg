@@ -1,10 +1,11 @@
 # WebStorm: http://devnet.jetbrains.com/docs/DOC-1186
 /.idea
-!/.idea/codeStyleSettings.xml
-!/.idea/jsLibraryMappings.xml
-!/.idea/modules.xml
 !/.idea/*.iml
-!/.idea/watcherTasks.iml
+!/.idea/codeStyleSettings.xml
+!/.idea/misc.xml
+!/.idea/modules.xml
+!/.idea/vcs.xml
+!/.idea/watcherTasks.xml
 
 /bower_components
 /node_modules
