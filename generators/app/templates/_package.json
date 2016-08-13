@@ -6,6 +6,8 @@
     "gulp-babel": "^6.1.2",
     "gulp-bower": "0.0.13",
     "gulp-bower-assets": "0.0.3",
+    "gulp-concat": "^2.6.0",
+    "gulp-sourcemaps": "^1.6.0",
     "jasmine-core": "^2.4.1",
     "karma": "^1.1.2",
     "karma-chrome-launcher": "^1.0.1",
