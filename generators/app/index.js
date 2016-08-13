@@ -55,6 +55,7 @@ module.exports = yeoman.Base.extend({
 
       this.template('_.babelrc', '.babelrc', this, {});
       this.template('_.editorconfig', '.editorconfig', this, {});
+      this.template('_.eslintrc', '.eslintrc', this, {});
       this.template('_.gitattributes', '.gitattributes', this, {});
       this.template('_.gitignore', '.gitignore', this, {});
       this.template('_bower.json', 'bower.json', this, {});

@@ -7,6 +7,7 @@
     "gulp-bower": "0.0.13",
     "gulp-bower-assets": "0.0.3",
     "gulp-concat": "^2.6.0",
+    "gulp-eslint": "^3.0.1",
     "gulp-sourcemaps": "^1.6.0",
     "gutil": "^1.6.4",
     "jasmine-core": "^2.4.1",

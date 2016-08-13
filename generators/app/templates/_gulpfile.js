@@ -3,6 +3,7 @@ var babel = require('gulp-babel');
 var bower = require('gulp-bower');
 var browserSync = require('browser-sync').create();
 var concat = require('gulp-concat');
+var eslint = require('gulp-eslint');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var pkg = require('./package.json');
@@ -10,7 +11,10 @@ var runSequence = require('run-sequence');
 var Server = require('karma').Server;
 var sourcemaps = require('gulp-sourcemaps');
 
-gulp.task('build', function() {
+gulp.task('build', ['build_js'], function() {
+});
+
+gulp.task('build_js', function() {
   return gulp.src('src/main/js/**/*.js')
     .pipe(babel())
     .pipe(gulp.dest('public/js'));
@@ -18,7 +22,7 @@ gulp.task('build', function() {
 
 gulp.task('default', ['build', 'tdd'], function() {
   gulp.watch('public/**/*.*').on('change', browserSync.reload);
-  gulp.watch('src/main/js/**/*.*', ['build']);
+  gulp.watch('src/main/js/**/*.*', ['build_js']);
 
   browserSync.init({
     port: 3636,
@@ -49,8 +53,18 @@ gulp.task('install_bower_assets', ['install_bower'], function() {
     .pipe(gulp.dest('public/dependencies'));
 });
 
+gulp.task('lint', ['lint_js'], function() {
+});
+
+gulp.task('lint_js', function() {
+  return gulp.src('src/main/js/**/*.js')
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+});
+
 gulp.task('test', function(done) {
-  runSequence('test_unit', done);
+  runSequence('lint', 'test_unit', done);
 });
 
 gulp.task('test_unit', function(done) {

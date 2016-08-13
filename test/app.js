@@ -20,6 +20,7 @@ describe('generator-leg:app', function() {
     assert.file([
       '.babelrc',
       '.editorconfig',
+      '.eslintrc.json',
       '.gitattributes',
       '.gitignore',
       'bower.json',
