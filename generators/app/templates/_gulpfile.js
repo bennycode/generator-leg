@@ -4,7 +4,9 @@ var bower = require('gulp-bower');
 var browserSync = require('browser-sync').create();
 var concat = require('gulp-concat');
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var pkg = require('./package.json');
+var runSequence = require('run-sequence');
 var Server = require('karma').Server;
 var sourcemaps = require('gulp-sourcemaps');
 
@@ -14,7 +16,7 @@ gulp.task('build', function() {
     .pipe(gulp.dest('public/js'));
 });
 
-gulp.task('default', function() {
+gulp.task('default', ['build', 'tdd'], function() {
   gulp.watch('public/**/*.*').on('change', browserSync.reload);
   gulp.watch('src/main/js/**/*.*', ['build']);
 
@@ -47,14 +49,23 @@ gulp.task('install_bower_assets', ['install_bower'], function() {
     .pipe(gulp.dest('public/dependencies'));
 });
 
+gulp.task('test', function(done) {
+  runSequence('test_unit', done);
+});
+
 gulp.task('test_unit', function(done) {
   return new Server({
     configFile: __dirname + '/karma.conf.js'
   }, done).start();
 });
 
-gulp.task('test_e2e', function(done) {
+gulp.task('tdd', function() {
+  gutil.log(gutil.colors.yellow('Test-driven development'));
+
   return new Server({
-    configFile: __dirname + '/karma.conf.js'
-  }, done).start();
+    configFile: __dirname + '/karma.conf.js',
+    autoWatch: true,
+    logLevel: 'info',
+    singleRun: false
+  }).start();
 });

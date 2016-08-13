@@ -8,10 +8,12 @@
     "gulp-bower-assets": "0.0.3",
     "gulp-concat": "^2.6.0",
     "gulp-sourcemaps": "^1.6.0",
+    "gutil": "^1.6.4",
     "jasmine-core": "^2.4.1",
     "karma": "^1.1.2",
     "karma-chrome-launcher": "^1.0.1",
-    "karma-jasmine": "^1.0.2"
+    "karma-jasmine": "^1.0.2",
+    "run-sequence": "^1.2.2"
   },
   "name": "<%= props.projectName %>",
   "private": true,
